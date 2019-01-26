@@ -87,7 +87,7 @@ export default {
     })
 
     this.$on('clickItem', (event) => {
-      this.$emit('click', event)
+      this.$emit('sidebarclick', event)
       if (this.closeTimeout) clearTimeout(this.closeTimeout)
       this.closeTimeout = setTimeout(() => {
         this.mouseLeave()
