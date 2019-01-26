@@ -49,7 +49,9 @@ export const itemMixin = {
             }
 
             if (this.isCollapsed && this.firstItem && !this.item.child) {
+                event.preventDefault()
                 this.$parent.$emit('clickItem', event)
+                return
             }
 
             if (!mobileItem && this.item.child) {
