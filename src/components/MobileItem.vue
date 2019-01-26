@@ -9,13 +9,13 @@
             </router-link>
         </template>
         <template v-else>
-            <a class="vsm-link" :href="item.href ? item.href : '#'" :disabled="item.disabled" @click="clickEvent($event, true)">
+            <a class="vsm-link" :href="item.href ? item.href : '#'" :disabled="item.disabled" @click="clickEvent($event, true, item)">
               <i v-if="item.icon" class="vsm-icon" :class="item.icon"></i>
               <span v-if="item.badge" :style="[item.child ? {'margin-right' : '30px'} : '']" class="vsm-badge" :class="[item.badge.class ? item.badge.class : 'default-badge']">{{item.badge.text}}</span>
               {{item.title}}
               <i v-if="item.child" class="vsm-arrow open-arrow"></i>
             </a>
-        </template>       
+        </template>
     </div>
 </template>
 

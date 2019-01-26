@@ -42,7 +42,11 @@ export const itemMixin = {
             }
             return false
         },
-        clickEvent(event, mobileItem) {
+        clickEvent(event, mobileItem, item) {
+            if(item.template) {
+              this.$parent.$emit('clickTemplate', item.template)
+            }
+            
             if (this.item.disabled || mobileItem && !this.item.href) {
                 event.preventDefault()
                 return
@@ -50,7 +54,7 @@ export const itemMixin = {
 
             if (this.isCollapsed && this.firstItem && !this.item.child) {
                 event.preventDefault()
-                this.$parent.$emit('clickItem', event)
+                this.$parent.$emit('clickItem')
                 return
             }
 

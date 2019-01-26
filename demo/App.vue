@@ -29,7 +29,7 @@ export default {
           title: 'Main Navigation'
         },
         {
-          href: '/',
+          template: 'test',
           title: 'Dashboard',
           icon: 'fa fa-user'
         },

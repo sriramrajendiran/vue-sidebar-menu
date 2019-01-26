@@ -86,12 +86,15 @@ export default {
       this.mobileItemHeight = val.height
     })
 
-    this.$on('clickItem', (event) => {
-      this.$emit('sidebarclick', event)
+    this.$on('clickItem', () => {
       if (this.closeTimeout) clearTimeout(this.closeTimeout)
       this.closeTimeout = setTimeout(() => {
         this.mouseLeave()
       }, 600)
+    })
+
+    this.$on('clickTemplate', (template) => {
+      this.$emit('sidebarclick', template)
     })
   },
   methods: {
