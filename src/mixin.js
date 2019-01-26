@@ -49,7 +49,7 @@ export const itemMixin = {
             }
 
             if (this.isCollapsed && this.firstItem && !this.item.child) {
-                this.$parent.$emit('clickItem')
+                this.$parent.$emit('clickItem', event)
             }
 
             if (!mobileItem && this.item.child) {

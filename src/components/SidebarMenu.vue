@@ -86,7 +86,8 @@ export default {
       this.mobileItemHeight = val.height
     })
 
-    this.$on('clickItem', () => {
+    this.$on('clickItem', (event) => {
+      this.$emit('click', event)
       if (this.closeTimeout) clearTimeout(this.closeTimeout)
       this.closeTimeout = setTimeout(() => {
         this.mouseLeave()
