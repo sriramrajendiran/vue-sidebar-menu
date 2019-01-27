@@ -1,8 +1,8 @@
 {
   "name": "vue-sidebar-menu",
-  "description": "A Vue.js Sidebar Menu Component",
+  "description": "A Vue.js Sidebar+Nav Menu Component",
   "version": "3.3.0",
-  "author": "yaminncco <yaminncco@gmail.com>",
+  "author": "sriram <sriram6793@gmail.com>",
   "license": "MIT",
   "main": "dist/vue-sidebar-menu.js",
   "files": [
@@ -11,9 +11,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yaminncco/vue-sidebar-menu.git"
+    "url": "https://github.com/sriramrajendiran/vue-sidebar-menu.git"
   },
-  "homepage": "https://yaminncco.github.io/vue-sidebar-menu/",
   "keywords": [
     "vue",
     "vue-component",
@@ -29,7 +28,11 @@
     "build:lib": "cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack.config.prod.js"
   },
   "dependencies": {
-    "vue": "^2.5.21"
+    "moment-timezone": "^0.5.23",
+    "vue": "^2.5.21",
+    "vue-avatar": "^2.1.7",
+    "vue-click-outside": "^1.0.7",
+    "vue-moment": "^4.0.0"
   },
   "postcss": {
     "plugins": {

@@ -1,0 +1,172 @@
+/*------------------------------------*\
+  #CONSTANTS
+\*------------------------------------*/
+
+// COLORS
+// ------------------------------------
+
+// Text Colors
+$text-black: #2a2a2a;
+$text-dark-gray: #4a4a4a;
+$text-gray: #6a6a6a;
+$text-light-gray: #9b9691;
+$text-lighter-gray: #c1bfbc;
+$text-burgundy: #822432;
+$text-blue: #41a6de;
+$text-green: #8ac54a;
+$text-white: #fcfbfb;
+
+// Secondary Text Colors
+$text-yellow: #e6a90a;
+$text-light-red: #dc4e41;
+$text-dark-red: #aa2516;
+
+// Border Colors
+$border-dark-gray: #c1bfbc;
+$border-gray: #d9d5d2;
+$border-light-gray: #e6e2df;
+$border-lighter-gray: #f5f2ee;
+$border-white: #fcfbfb;
+$border-burgundy: #822432;
+$border-blue: #41a6de;
+$border-green: #8ac54a;
+
+// Secondary Border Colors
+$border-email-yellow: #fcbb58;
+$border-ld-copy-gray: #93a8ac;
+$border-dark-red: #820632;
+$border-light-red: #dc4e41;
+$border-snow-white: #ffffff;
+
+// Background Colors
+$background-dark-gray: #d9d5d2;
+$background-gray: #e6e2df;
+$background-light-gray: #f5f2ee;
+$background-lighter-gray: #f8f6f3;
+$background-white: #fcfbfb;
+$background-burgundy: #822432;
+$background-blue: #41a6de;
+$background-green: #8ac54a;
+$background-snow-white: #ffffff;
+$background-ivory: #fdf9e2;
+
+// Secondary Background Colors
+$background-dark-blue: #1c2f63;
+$background-dark-red: #ae2721;
+$background-red: #f53f16;
+$background-green-blue: #93a8ac;
+$background-light-pink: #ba6868;
+
+$background-orange: #e6aa5a;
+$background-callout-gray: #f3f3f3;
+$background-light-gray-pink: #f2eef1;
+$background-dark-white: #c5c5c5;
+
+// External Colors
+$facebook-blue: #3d5a98;
+$twitter-blue: #2aa9e0;
+$pinterest-red: #bd081c;
+$tumblr-blue: #37465d;
+
+// State Colors
+$state-danger: #d9534f;
+
+// Secondary Colors
+$modal-backdrop: rgba(42, 42, 42, 0.45);
+$background-callout-gray: #f3f3f3;
+$background-dark-white: #c5c5c5;
+
+
+// SHADOWS, BORDER-RADIUS, Z-INDEX
+// ------------------------------------
+
+// Shadows
+$box-shadow-base: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+$box-shadow-medium: 0 1px 2px rgba(0,0,0,0.2);
+$box-shadow-large: 0 1px 6px 1px rgba(0,0,0,0.1);
+
+$flash-shadow: 0 2px 10px rgba(0,0,0,0.35);
+$modal-shadow: 0 4px 32px 8px rgba(0, 0, 0, 0.2);
+$dropdown-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+$dropdown-menu-caret-shadow: 0 -2px 16px 1px rgba(0, 0, 0, 0.1);
+
+
+$modal-shadow: 0 4px 32px 8px rgba(0, 0, 0, 0.2);
+
+// Border Radius
+$border-radius-base: 2px;
+$border-radius-medium: 3px;
+$border-radius-large: 4px;
+
+// Z-Index
+$z-index-dropdown: 1000 !default;
+$z-index-hud-backdrop: 1010 !default;
+$z-index-hud: 1020 !default;
+$z-index-modal-backdrop: 1040 !default;
+$z-index-modal: 1050 !default;
+
+// TEXT
+// ------------------------------------
+
+// FONT-SIZES
+
+// Content Fonts
+$font-size-base: 14px;
+/* small is used for username labels (i.e. username in likers list) */
+$font-size-small: 12px;
+/* x-small is used for notification count, listing details nwt tag */
+$font-size-x-small: 11px;
+/* xx-small is used for time stamps, username in listing tiles */
+$font-size-xx-small: 10px;
+/* xx-small is used for nwt tag in tiles */
+$font-size-xxx-small: 9px;
+
+// Heading Fonts
+/* Desktop */
+$font-size-h1: 28px;
+$font-size-h2: 21px;
+$font-size-h3: 18px;
+$font-size-h4: 16px;
+/* Mobile */
+$font-size-m-h1: 21px;
+$font-size-m-h2: 17px;
+$font-size-m-h3: 16px;
+$font-size-m-h4: 15px;
+
+// FONT-WEIGHTS
+/* Google Font Weights: 300,400,500,700 */
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// LINE-HEIGHTS
+/* 1.2 should be used to support characters that extend beyond baseline (i.e. g, p, y...) */
+// Hack because chrome rounds line height down
+$line-height-base: 1.22;
+/* 1.5 line height use for large blocks of text (i.e. what is poshmark page) */
+$line-height-medium: 1.5;
+$line-height-large: 1.75;
+
+// RESPONSIVE DESIGN
+// ------------------------------------
+
+// Grid Breakpoints
+$grid-columns: 24;
+$breakpoints-s: 480px;
+$breakpoints-m: 768px;
+$breakpoints-l: 992px;
+
+// Secondary Breakpoints
+$breakpoints-xl: 1248;
+
+// Screen Size
+$min-screen-width: 320px;
+$min-desktop-screen-width: 768px;
+$max-desktop-screen-width: 1360px;
+$min-screen-height: 375px;
+
+// MATH VALUE
+// ------------------------------------
+/* Used for calculations (i.e. 45 degree angles)*/
+// $sin45: 1.41421

@@ -1,0 +1,360 @@
+/*------------------------------------*\
+  #UTILITY
+\*------------------------------------*/
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.hide {
+  display: none !important;
+}
+.scroll-lock {
+  overflow: hidden;
+}
+
+.list-style--disc {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.list-style--decimal {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+// TEXT PROPERTIES
+// ------------------------------------
+
+// Text Color
+.tc--b {
+  color: $text-black !important;
+}
+.tc--dg {
+  color: $text-dark-gray !important;
+}
+.tc--g {
+  color: $text-gray !important;
+}
+.tc--lg {
+  color: $text-light-gray !important;
+}
+.tc--lb {
+  color: $text-burgundy !important;
+}
+.tc--blue {
+  color: $text-blue !important;
+}
+.tc--white {
+  color: $text-white !important;
+}
+.tc--green {
+  color: $text-green !important;
+}
+
+// Text Align
+.ta--l {
+  text-align: left !important;
+}
+.ta--r {
+  text-align: right !important;
+}
+.ta--c {
+  text-align: center !important;
+}
+
+// Font Weight
+.fw--light {
+  font-weight: $font-weight-light !important;
+}
+.fw--reg {
+  font-weight: $font-weight-regular !important;
+}
+.fw--med {
+  font-weight: $font-weight-medium !important;
+}
+.fw--bold {
+  font-weight: $font-weight-bold !important;
+}
+
+// Text Transform
+.tr--uppercase {
+  text-transform: uppercase !important;
+}
+.tr--lowercase {
+  text-transform: lowercase !important;
+}
+.tr--capitalize {
+  text-transform: capitalize !important;
+}
+
+// Text Decoration
+.td--ul {
+  text-decoration: underline !important;
+}
+.td--ol {
+  text-decoration: overline !important;
+}
+.td--lt {
+  text-decoration: line-through !important;
+}
+
+// Ellipses
+.ellipses {
+  @include ellipsis();
+}
+.multiline-ellipsis {
+  position: relative;
+  @include multiline-ellipsis();
+}
+
+// Line Height
+.lh--base {
+  line-height: $line-height-base !important;
+}
+.lh--medium {
+  line-height: $line-height-medium !important;
+}
+.lh--large {
+  line-height: $line-height-large !important;
+}
+// BORDER
+// ------------------------------------
+.br--gray {
+  border: 1px solid $border-gray;
+}
+.br--light-gray {
+  border: 1px solid $border-light-gray;
+}
+.br--lighter-gray {
+  border: 1px solid $border-lighter-gray;
+}
+.br--2--burgundy {
+  border: 2px solid $border-burgundy !important;
+}
+.br--none {
+  border: none !important;
+}
+// Radius
+.round {
+  border-radius: 50% !important;
+}
+.br-rad--base {
+  border-radius: $border-radius-base !important;
+}
+.br-rad--med {
+  border-radius: $border-radius-medium !important;
+}
+// Sides
+.br--bottom {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+// BACKGROUND
+// ------------------------------------
+.bg--dark-gray {
+  background-color: $background-dark-gray !important;
+}
+.bg--gray {
+  background-color: $background-gray !important;
+}
+.bg--light-gray {
+  background-color: $background-light-gray !important;
+}
+.bg--lighter-gray {
+  background-color: $background-lighter-gray !important;
+}
+.bg--white {
+  background-color: $background-white !important;
+}
+.bg--snow-white {
+  background-color: $background-snow-white !important;
+}
+.bg--blue {
+  background-color: $background-blue !important;
+}
+.bg--dark-blue {
+  background-color: $background-dark-blue !important;
+}
+.bg--burgundy {
+  background-color: $background-burgundy !important;
+}
+.bg--red {
+  background-color: $background-red !important;
+}
+.bg--dark-red {
+  background-color: $background-dark-red !important;
+}
+.bg--green {
+  background-color: $background-green !important;
+}
+.bg--green-blue {
+  background-color: $background-green-blue !important;
+}
+.bg--light-pink {
+  background-color: $background-light-pink !important;
+}
+.bg--burgundy {
+  background-color: $background-burgundy !important;
+}
+.bg--yellow {
+  background-color: $background-ivory !important;
+}
+.bg--orange {
+  background-color: $background-orange !important;
+}
+
+// DISPLAY, POSITION, ALIGNMENT
+// ------------------------------------
+
+// Display
+.d--b {
+  display: block !important;
+}
+.d--ib {
+  display: inline-block !important;
+}
+.d--tb {
+  display: table !important;
+}
+.d--fl{
+  @include flex(!important);
+}
+.d--if {
+  @include inline-flex(!important);
+}
+
+// Flex Alignment
+.jc--c{
+  @include justify-content(center !important);
+}
+.jc--sb{
+  @include justify-content(space-between !important);
+}
+.jc--sa{
+  @include justify-content(space-around !important);
+}
+.jc--fs {
+  @include justify-content(flex-start !important);
+}
+.jc--fe {
+  @include justify-content(flex-end !important);
+}
+.ai--c{
+  @include align-items(center !important);
+}
+.ai--s{
+  @include align-items(stretch !important);
+}
+.ai--fs{
+  @include align-items(flex-start !important);
+}
+.ai--bl{
+  @include align-items(baseline !important);
+}
+.fw--w{
+  @include flex-wrap(wrap !important);
+}
+.fd--c{
+  @include flex-direction(column !important);
+}
+.fd--cr{
+  @include flex-direction(column-reverse !important);
+}
+.fd--rr {
+  @include flex-direction(row-reverse !important);
+}
+.fd--r{
+  @include flex-direction(row !important);
+}
+.ja--c{
+  @include justify-content(center !important);
+  @include align-items(center !important);
+}
+.as--fe {
+  @include align-self(flex-end !important);
+}
+.as--fs {
+  @include align-self(flex-start !important);
+}
+.as--c {
+  @include align-self(center !important);
+}
+
+// Floats
+.f--right {
+  float: right !important;
+}
+.f--left {
+  float: left !important;
+}
+
+// Position
+.ps--r {
+  position: relative !important;
+}
+.va--t{
+  vertical-align: top !important;
+}
+.va--b{
+  vertical-align: bottom !important;
+}
+.va--m{
+  vertical-align: middle !important;
+}
+.al--center {
+  margin: 0 auto !important;
+}
+.al--right {
+  margin: 0 0 0 auto !important;
+}
+.al--left {
+  margin: 0 auto 0 0 !important;
+}
+.ovf--h {
+  overflow: hidden !important;
+}
+
+// link
+
+.cursor--pointer {
+  cursor: pointer;
+}
+
+// Screen Size
+// ------------------------------------
+
+// This is a hack to match the css that we have on Rails app
+@include media-max-width(1190px) {
+  .hide-desktop-small {
+    display: none !important;
+  }
+}
+
+// Padding and Margin
+// ------------------------------------
+
+$space-amounts: (0, 1, 2, 3, 4 ); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $space-amounts {
+  @each $side in $sides {
+    .m--#{$space} {
+      margin: #{$space * 0.5}rem !important;
+    }
+    .m--#{str-slice($side, 0, 1)}--#{$space} {
+      margin-#{$side}: #{$space * 0.5}rem !important;
+    }
+    .p--#{$space} {
+      padding: #{$space * 0.5}rem !important;
+    }
+    .p--#{str-slice($side, 0, 1)}--#{$space} {
+      padding-#{$side}: #{$space * 0.5}rem !important;
+    }
+  }
+}

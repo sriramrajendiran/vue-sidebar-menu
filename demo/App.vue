@@ -1,6 +1,7 @@
 <template>
   <div id="demo" :class="[{'collapsed' : collapsed}]">
     <div class="demo">
+      <nav-bar :navList="navList" :navData="navData"/>
       <h1>vue-sidebar-menu</h1>
       <div>select theme:
         <select v-model="selectedTheme">
@@ -15,11 +16,14 @@
 </template>
 
 <script>
+import NavBar from "../src/components/Navbar.vue";
+
 const separator = {
   template: `<hr style="border-color: rgba(0, 0, 0, 0.1); margin: 20px;">`
 }
 
 export default {
+  components: {NavBar},
   name: 'app',
   data() {
     return {
@@ -147,7 +151,27 @@ export default {
       ],
       collapsed: false,
       themes: ['', 'white-theme'],
-      selectedTheme: 'white-theme'
+      selectedTheme: 'white-theme',
+      navData: {
+        orgName: "test services",
+        username: "vandu murugan"
+      },
+      navList: {
+        list: [
+          { template: 'lockscreen',
+            display: 'Lockscreen',
+            type: 'text',
+            link_class: 'dropdown__link',
+            class: 'dropdown__menu__item'
+          },
+          { template: 'signout',
+            display: 'Signout',
+            type: 'text',
+            link_class: 'dropdown__link',
+            class: 'dropdown__menu__item'
+          }
+        ]
+      }
     }
   },
   methods: {
@@ -181,7 +205,6 @@ body {
 }
 
 .demo {
-  padding: 50px;
 }
 
 .badge-danger {

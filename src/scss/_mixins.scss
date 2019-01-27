@@ -1,0 +1,301 @@
+/*------------------------------------*\
+  #MIXINS
+\*------------------------------------*/
+
+@mixin size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin square($length) {
+  @include size($length, $length);
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin noselect() {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+@mixin linear-gradient($direction, $color...) {
+  background: linear-gradient($direction, $color); /* Fx 10+, Op 11.6+, Ch 26+, IE 10 */
+}
+
+// MEDIA QUERIES
+// ------------------------------------
+
+@mixin media-max-width($width) {
+  @media only screen and (max-width: $width) { @content; }
+}
+
+@mixin media-min-width($width) {
+  @media only screen and (min-width: $width) { @content; }
+}
+
+// For Referrence:
+/* $breakpoints-s: 480px; */
+/* $breakpoints-m: 768px; */
+/* $breakpoints-l: 992px; */
+
+@mixin responds-to($media) {
+  @if $media == mobile-small {
+    @media only screen and (max-width: $breakpoints-s), (max-height: $breakpoints-m - 1) and (orientation: landscape) { @content; }
+  }
+  @else if $media == mobile {
+    @media only screen and (max-device-width: $breakpoints-m - 1), (max-device-height: $breakpoints-m - 1) and (orientation: landscape) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $breakpoints-m) { @content; }
+  }
+  @else if $media == desktop-small {
+    @media only screen and (min-width: $breakpoints-m) and (max-width: $breakpoints-l - 1) { @content; }
+  }
+  @else if $media == desktop-large {
+    @media only screen and (min-width: $breakpoints-l) { @content; }
+  }
+}
+
+// TEXT
+// ------------------------------------
+
+@mixin ellipsis() {
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+@mixin multiline-ellipsis() {
+  &:after {
+    content: "\00a0\00a0\00a0...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 15px;
+    // Background white => rgb(252,251,251)
+    background: linear-gradient(to right, rgba(252, 251, 251, 0), rgba(252, 251, 251, 1) 50%);
+  }
+}
+
+@mixin line-clamp($line-number) {
+  @supports (-webkit-line-clamp: $line-number) {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $line-number;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content};
+  &:-moz-placeholder           {@content};
+  &::-moz-placeholder          {@content};
+  &:-ms-input-placeholder      {@content};
+}
+
+@mixin responsive-font-sizes($desktop-font-size, $mobile-font-size) {
+  font-size: $mobile-font-size;
+  @include responds-to(desktop) {
+    font-size: $desktop-font-size;
+  }
+}
+
+// TRANSFORMS AND TRANSITIONS
+// ------------------------------------
+
+@mixin transform($transforms...) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+@mixin transform-origin ($origin) {
+  moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin delay-disappear($animation-name, $value: 3s) {
+  -webkit-animation: $animation-name 1.0s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: $value;
+  animation: $animation-name 1.0s forwards;
+  animation-iteration-count: 1;
+  animation-delay: $value;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// FLEX PROPERTIES
+// ------------------------------------
+
+@mixin flex($args...) {
+  display: -webkit-box $args;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox $args;  /* TWEENER - IE 10 */
+  display: -webkit-flex $args;
+  display: flex $args;
+}
+
+@mixin inline-flex($args...) {
+  display: -webkit-inline-box $args;
+  display: -ms-inline-flexbox $args;
+  display: -webkit-inline-flex $args;
+  display: inline-flex $args;
+}
+
+@mixin align-items($value) {
+  @include ms-flex-align-items($value); // IE10
+  -webkit-align-items: $value;
+  align-items: $value;
+}
+
+@mixin align-self($value) {
+  @include ms-flex-align-self($value); // IE10
+  -webkit-align-self: $value;
+  align-self: $value;
+}
+
+@mixin align-self($value) {
+  -webkit-align-self: $value;
+  align-self: $value;
+}
+
+@mixin justify-content($value) {
+  @include ms-flex-justify-content($value); // IE10
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+
+@mixin flex-direction($value) {
+  -ms-flex-direction: $value; // IE10
+  -webkit-flex-direction: $value; // Safari / iOS
+  flex-direction: $value;
+}
+
+@mixin flex-wrap($value) {
+  @include ms-flex-wrap($value); // IE10
+  -webkit-flex-wrap: $value; // Safari / iOS
+  flex-wrap: $value;
+}
+
+@mixin flex-grow-shrink($grow, $shrink: 1, $basis: auto) {
+  -webkit-flex: $grow #{$shrink} #{$basis}; /* Safari 6.1+ */
+  -ms-flex: $grow #{$shrink} #{$basis}; /* IE 10 */
+  flex: $grow #{$shrink} #{$basis};
+}
+
+@mixin order($value) {
+  -ms-flex-order: $value; // IE10
+  -webkit-order: $value; // Safari / iOS
+  order: $value;
+}
+
+/* These are the conditional mixins for the different syntax for IE10 Flexbox */
+@mixin ms-flex-justify-content($justifyContent) {
+  @if $justifyContent == space-between { -ms-flex-pack: justify; }
+  @else if $justifyContent == space-around { -ms-flex-pack: distribute; }
+  @else if $justifyContent == flex-start { -ms-flex-pack: start; }
+  @else if $justifyContent == flex-end { -ms-flex-pack: end; }
+  @else if $justifyContent == center { -ms-flex-pack: center; }
+}
+
+@mixin ms-flex-align-items($alignItems) {
+  @if $alignItems == flex-start { -ms-flex-align: start; }
+  @else if $alignItems == flex-end { -ms-flex-align: end; }
+  @else if $alignItems == center { -ms-flex-align: $alignItems; }
+  @else if $alignItems == baseline { -ms-flex-align: $alignItems; }
+  @else if $alignItems == stretch { -ms-flex-align: $alignItems; }
+}
+
+@mixin ms-flex-align-self($alignSelf) {
+  @if $alignSelf == flex-start { -ms-flex-item-align: start; }
+  @else if $alignSelf == flex-end { -ms-flex-item-align: end; }
+  @else if $alignSelf == auto { -ms-flex-item-align: $alignSelf; }
+  @else if $alignSelf == center { -ms-flex-item-align: $alignSelf; }
+  @else if $alignSelf == baseline { -ms-flex-item-align: $alignSelf; }
+  @else if $alignSelf == stretch { -ms-flex-item-align: $alignSelf; }
+}
+
+@mixin ms-flex-wrap($wrap) {
+  @if $wrap == nowrap { -ms-flex-wrap: none; }
+  @else if $wrap == wrap { -ms-flex-wrap: $wrap; }
+  @else if $wrap == wrap-reverse { -ms-flex-wrap: $wrap; }
+}
+
+// OTHER
+// ------------------------------------
+
+@mixin vertical-center-absolute($transforms...) {
+  top: 50%;
+  @include transform($transforms translate(0, -50%));
+}
+
+@mixin ripple-click() {
+  // Required for Ripple Effect
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  // Ripple Effect On Button Click
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1000%;
+    height: 1000%;
+    top: -450%;
+    left: -450%;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    @include scale(1);
+    opacity: 0;
+    @include transition(transform 0.3s, opacity 0.5s);
+    -webkit-backface-visibility: hidden;
+  }
+}
