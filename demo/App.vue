@@ -29,13 +29,14 @@ export default {
           title: 'Main Navigation'
         },
         {
-          template: 'test',
+          template: 'test1',
           title: 'Dashboard',
           icon: 'fa fa-user'
         },
         {
-          href: '/charts',
+
           title: 'Charts',
+          template: 'test2',
           icon: 'fa fa-chart-area',
           badge: {
             text: 'pro',
@@ -43,13 +44,15 @@ export default {
           }
         },
         {
-          href: '/tables',
+
           title: 'Tables',
+          template: 'test3',
           icon: 'fa fa-table'
         },
         {
-          href: '/disabled',
+
           title: 'Disabled',
+          template: 'test4',
           icon: 'fa fa-cog',
           disabled: true,
           badge: {
@@ -68,23 +71,22 @@ export default {
         {
           title: 'Pages',
           icon: 'fa fa-file',
-          href: '/auth',
           badge: {
             text: 'new',
           },
           child: [
             {
-              href: '/auth/login',
+
               title: 'Login Page',
               icon: 'fa fa-lock'
             },
             {
-              href: '/auth/registration',
+
               title: 'Registration Page',
               icon: 'fa fa-lock'
             },
             {
-              href: '/auth/disabled',
+
               title: 'Disabled',
               icon: 'fa fa-unlock',
               disabled: true
@@ -92,7 +94,7 @@ export default {
           ]
         },
         {
-          href: '#',
+
           title: 'Mailbox',
           icon: 'fa fa-envelope'
         },
@@ -101,39 +103,39 @@ export default {
           icon: 'fa fa-list-alt',
           child: [
             {
-              href: '#',
+
               title: 'Page 01'
             },
             {
               title: 'Page 02',
               child: [
                 {
-                  href: '#',
+
                   title: 'Page 04'
                 },
                 {
-                  href: '#',
+
                   title: 'Page 05'
                 }
               ]
             },
             {
-              href: '#',
+
               title: 'Page 03'
             },
             {
               title: 'Level 2',
               child: [
                 {
-                  href: '#',
+
                   title: 'Level 3',
                   child: [
                     {
-                      href: '#',
+
                       title: 'Page'
                     },
                     {
-                      href: '#',
+
                       title: 'Page'
                     }
                   ]

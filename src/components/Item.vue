@@ -25,7 +25,7 @@
                 <transition name="expand" @enter="expandEnter" @afterEnter="expandAfterEnter" @beforeLeave="expandBeforeLeave">
                     <div class="vsm-dropdown" v-if="show">
                         <div class="vsm-list">
-                            <sub-item v-for="(subItem, index) in item.child" :item="subItem" :key="index" />
+                            <sub-item v-for="(subItem, index) in item.child" :item="subItem" :key="index" :activeItem="activeItem"/>
                         </div>
                     </div>
                 </transition>
@@ -55,6 +55,9 @@ export default {
     },
     isCollapsed: {
       type: Boolean
+    },
+    activeItem: {
+      type: String
     }
   },
   components: {

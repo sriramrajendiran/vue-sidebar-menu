@@ -20,7 +20,7 @@
             <transition name="expand" @enter="expandEnter" @afterEnter="expandAfterEnter" @beforeLeave="expandBeforeLeave">
                 <div class="vsm-dropdown" v-if="show">
                     <div class="vsm-list">
-                        <item v-for="(subItem, index) in item.child" :item="subItem" :key="index" />
+                        <item v-for="(subItem, index) in item.child" :item="subItem" :key="index" :activeItem="activeItem"/>
                     </div>
                 </div>
             </transition>
@@ -40,7 +40,8 @@ export default {
   },
   mixins: [itemMixin, animationMixin],
   props: {
-    item: Object
+    item: Object,
+    activeItem: String
   },
   components: {
     Item

@@ -6,7 +6,7 @@ export const itemMixin = {
         }
     },
     created() {
-        this.active = this.item && this.item.href ? this.isLinkActive(this.item) : false
+        this.active = this.isLinkActive(this.item);
         this.childActive = this.item && this.item.child ? this.isChildActive(this.item.child) : false
         if (this.item && this.item.child) {
             if (this.showChild) {
@@ -23,11 +23,9 @@ export const itemMixin = {
             this.show = !this.show
         },
         isLinkActive(item) {
-            if ( this.$route ) {
-                return item.href == this.$route.path
-            } else {
-                return item.href == window.location.pathname
-            }
+          if(item && item.template) {
+            return this.activeItem === item.template
+          }
         },
         isChildActive(child) {
             for (let item of child) {
@@ -65,7 +63,7 @@ export const itemMixin = {
                 }
                 if (this.isRouterLink) {
                     this.active ? this.toggleDropdown() : this.show = true
-                } else if (!this.item.href) {
+                } else if (!this.item.template) {
                     event.preventDefault()
                     this.toggleDropdown()
                 }
@@ -78,8 +76,8 @@ export const itemMixin = {
         }
     },
     watch: {
-        $route() {
-            this.active = this.item && this.item.href ? this.isLinkActive(this.item) : false
+        activeItem() {
+            this.active = this.isLinkActive(this.item);
             this.childActive = this.item && this.item.child ? this.isChildActive(this.item.child) : false
         }
     },

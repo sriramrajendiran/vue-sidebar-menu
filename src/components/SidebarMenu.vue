@@ -10,7 +10,7 @@
               <div :key="index" class="vsm-header">{{item.title}}</div>
             </template>
           </template>
-         <item v-else :key="index" :item="item" :firstItem="true" :isCollapsed="isCollapsed" />
+         <item v-else :key="index" :item="item" :firstItem="true" :isCollapsed="isCollapsed" :activeItem="getCurrentActiveItem"/>
       </template>
     </div>
     <div v-if="isCollapsed" :style="[{'position' : 'absolute'}, {'top' : `${mobileItemPos}px`}, {'left' : '0px'}, {'z-index' : 30}, {'width' : width}]">
@@ -73,6 +73,7 @@ export default {
   data() {
     return {
       isCollapsed: this.collapsed,
+      currentActiveItem: null,
       mobileItem: null,
       mobileItemPos: 0,
       mobileItemHeight: 0,
@@ -94,7 +95,8 @@ export default {
     })
 
     this.$on('clickTemplate', (template) => {
-      this.$emit('sidebarclick', template)
+        this.currentActiveItem = template;
+        this.$emit('sidebarclick', template)
     })
   },
   methods: {
@@ -109,6 +111,9 @@ export default {
   computed: {
     sidebarWidth() {
       return this.isCollapsed ? this.widthCollapsed : this.width
+    },
+    getCurrentActiveItem() {
+      return this.currentActiveItem;
     }
   },
   watch: {
